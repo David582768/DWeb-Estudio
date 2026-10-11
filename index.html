@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#173c30">
-  <meta name="description" content="DWeb Estudio crea páginas web modernas, elegantes y adaptables para pequeños negocios.">
+
   <title>DWeb Estudio | Diseño web para negocios</title>
+  <meta name="description" content="Diseño y desarrollo de páginas web modernas, adaptables a móviles y pensadas para presentar tu negocio de forma profesional.">
+  <meta name="theme-color" content="#173c30">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +16,15 @@
   <style>
     :root {
       --green: #173c30;
-      --green-light: #285342;
+      --green-light: #285344;
       --cream: #f8f5ee;
+      --white: #fffdf8;
       --gold: #d8bd91;
       --ink: #262a28;
-      --muted: #70766f;
-      --white: #ffffff;
-      --line: #e7e2d8;
-      --radius: 18px;
-      --max-width: 1120px;
+      --muted: #6e746f;
+      --line: #e5e0d5;
+      --radius: 22px;
+      --shadow: 0 18px 55px rgba(23, 60, 48, .09);
     }
 
     * {
@@ -42,6 +43,7 @@
       color: var(--ink);
       font-family: "DM Sans", sans-serif;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -54,840 +56,1341 @@
     }
 
     .container {
-      width: min(var(--max-width), calc(100% - 40px));
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
-    .topbar {
+    .eyebrow {
+      color: var(--green-light);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.17;
+    }
+
+    h1 {
+      font-size: clamp(2.65rem, 6vw, 4.8rem);
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 690px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading p {
+      margin-top: 18px;
+      font-size: 1.08rem;
+    }
+
+    .accent {
+      color: var(--green-light);
+      font-style: italic;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 22px;
+      border-radius: 999px;
+      font-size: .95rem;
+      font-weight: 700;
+      text-align: center;
+      transition: transform .2s, background .2s, border-color .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--green);
+      border: 1px solid var(--line);
+    }
+
+    .btn-light:hover {
+      border-color: var(--green);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--green);
+    }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    /* Navegación */
+
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(248, 245, 238, 0.96);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
+      z-index: 20;
+      background: rgba(248,245,238,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(229,224,213,.85);
     }
 
     .nav {
-      min-height: 76px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 25px;
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 11px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      white-space: nowrap;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .brand-mark {
       width: 42px;
       height: 42px;
-      border-radius: 50%;
+      border-radius: 13px;
       background: var(--green);
       color: var(--gold);
       display: grid;
       place-items: center;
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-      border: 1px solid var(--gold);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
 
     .brand-name {
-      font-size: 17px;
+      display: block;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .brand-caption {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      margin-top: 3px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 26px;
-      font-size: 13px;
+      font-size: .9rem;
       font-weight: 600;
     }
 
-    .nav-links a:not(.nav-cta):hover {
+    .nav-links a:not(.btn):hover {
       color: var(--green-light);
     }
 
-    .nav-cta,
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 13px 21px;
-      background: var(--green);
-      color: var(--white);
-      border: 1px solid var(--green);
-      font-size: 14px;
-      font-weight: 600;
-      transition: transform 0.2s, background 0.2s;
-      cursor: pointer;
+    .nav-links .btn {
+      padding: 11px 17px;
     }
 
-    .nav-cta:hover,
-    .button:hover {
-      background: var(--green-light);
-      transform: translateY(-2px);
-    }
-
-    .button-outline {
-      color: var(--green);
-      background: transparent;
-      border-color: #b8c2b8;
-    }
-
-    .button-outline:hover {
-      color: var(--white);
-    }
+    /* Inicio */
 
     .hero {
-      padding: 100px 0 95px;
+      position: relative;
+      overflow: hidden;
+      padding: 105px 0 95px;
       background:
-        radial-gradient(ellipse at 85% 20%, rgba(216, 189, 145, 0.19), transparent 38%),
+        radial-gradient(ellipse at 85% 15%, rgba(216,189,145,.23), transparent 33%),
         var(--cream);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 70px;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 65px;
       align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--green-light);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 11px;
-      font-weight: 700;
-      margin-bottom: 23px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 27px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1, h2, h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 600;
-      line-height: 1.17;
-    }
-
-    h1 {
-      font-size: clamp(43px, 5.5vw, 69px);
-      letter-spacing: -1.8px;
-      max-width: 680px;
-    }
-
-    h1 span {
-      color: var(--green-light);
-      font-style: italic;
     }
 
     .hero-copy {
-      max-width: 520px;
-      color: var(--muted);
-      font-size: 16px;
-      margin: 24px 0 30px;
+      max-width: 690px;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin-bottom: 25px;
+    }
+
+    .hero-copy > p {
+      max-width: 570px;
+      font-size: 1.13rem;
+      margin-bottom: 30px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .microcopy {
+      margin-top: 19px;
+      font-size: .88rem;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .browser-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d8d2c6;
+    }
+
+    .browser-address {
+      margin-left: 8px;
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    .preview {
+      overflow: hidden;
+      margin-top: 18px;
+      border-radius: 18px;
+      background: #f0e7d8;
+    }
+
+    .preview-top {
+      padding: 27px 23px 25px;
+      background: #173c30;
+      color: white;
+    }
+
+    .preview-label {
+      color: var(--gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .preview-top h3 {
+      max-width: 280px;
+      margin: 14px 0 12px;
+      font-size: 2rem;
+    }
+
+    .preview-top p {
+      color: #e4e8e3;
+      font-size: .84rem;
+    }
+
+    .preview-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
+      padding: 17px;
+    }
+
+    .preview-tile {
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 15px;
+      border-radius: 12px;
+      background: #fffdf8;
+    }
+
+    .preview-tile:nth-child(2) {
+      background: #ddc6a2;
+    }
+
+    .preview-tile strong {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.15rem;
+      color: var(--green);
+    }
+
+    .preview-tile span {
+      font-size: .75rem;
+      color: var(--muted);
     }
 
     .hero-note {
       display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 19px;
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,253,248,.72);
+      font-size: .88rem;
+    }
+
+    .hero-note strong {
+      color: var(--green);
+    }
+
+    /* Beneficios */
+
+    .benefits {
+      padding: 27px 0;
+      background: var(--green);
+      color: white;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .benefit {
+      display: flex;
+      gap: 13px;
       align-items: center;
-      gap: 10px;
-      margin-top: 35px;
-      color: var(--muted);
-      font-size: 12px;
+      font-size: .94rem;
+      font-weight: 600;
     }
 
-    .hero-note span {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 400px;
+    .benefit-icon {
       display: grid;
       place-items: center;
-    }
-
-    .visual-frame {
-      width: 100%;
-      max-width: 390px;
-      aspect-ratio: 0.9;
-      border-radius: 190px 190px 18px 18px;
-      background: var(--green);
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .visual-frame::before,
-    .visual-frame::after {
-      content: "";
-      position: absolute;
-      border: 1px solid rgba(216, 189, 145, 0.4);
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      width: 280px;
-      height: 280px;
-    }
-
-    .visual-frame::after {
-      width: 210px;
-      height: 210px;
-    }
-
-    .monogram {
       color: var(--gold);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(100px, 14vw, 165px);
-      line-height: 1;
-      z-index: 1;
-      letter-spacing: -12px;
-      padding-right: 12px;
+      border: 1px solid rgba(216,189,145,.55);
+      font-size: 1rem;
     }
 
-    .visual-label {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #f8f5ee;
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      z-index: 2;
-    }
-
-    .section {
-      padding: 95px 0;
-    }
-
-    .section-white {
-      background: var(--white);
-    }
-
-    .section-dark {
-      background: var(--green);
-      color: var(--white);
-    }
-
-    .section-heading {
-      max-width: 650px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading.center {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(34px, 4vw, 48px);
-      letter-spacing: -0.8px;
-      margin-bottom: 17px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .section-dark .section-heading p {
-      color: #d0d9d1;
-    }
+    /* Servicios */
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 20px;
     }
 
     .service-card {
-      padding: 30px 26px;
+      padding: 30px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--cream);
-      transition: transform 0.2s, border-color 0.2s;
+      background: var(--white);
+      transition: transform .2s, box-shadow .2s;
     }
 
     .service-card:hover {
       transform: translateY(-4px);
-      border-color: var(--gold);
+      box-shadow: var(--shadow);
     }
 
     .service-number {
       display: inline-grid;
       place-items: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      width: 43px;
+      height: 43px;
+      margin-bottom: 23px;
+      border-radius: 13px;
+      background: #e8eee8;
       color: var(--green);
-      background: #ece6d9;
-      font-size: 13px;
       font-weight: 700;
-      margin-bottom: 24px;
     }
 
     .service-card h3 {
-      font-size: 23px;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 60px;
-    }
-
-    .project-preview {
-      min-height: 350px;
-      padding: 25px;
-      border-radius: var(--radius);
-      background: #e8e1d4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .browser {
-      width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 18px 45px rgba(38, 42, 40, 0.13);
-      background: #fffdf8;
-    }
-
-    .browser-bar {
-      height: 32px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 0 12px;
-      background: #f2eee7;
-    }
-
-    .browser-bar i {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #c5beb1;
-    }
-
-    .browser-content {
-      min-height: 250px;
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-    }
-
-    .browser-copy {
-      padding: 25px 15px 20px 20px;
-    }
-
-    .browser-copy small {
-      color: #6b796b;
-      font-size: 8px;
-      letter-spacing: 1px;
-    }
-
-    .browser-copy h3 {
-      font-size: clamp(19px, 2.3vw, 29px);
-      margin: 12px 0;
-      color: #263d30;
-    }
-
-    .browser-copy p {
-      font-size: 9px;
-      color: #73766e;
-      line-height: 1.6;
-    }
-
-    .browser-image {
-      margin: 14px;
-      border-radius: 80px 80px 8px 8px;
-      background: linear-gradient(145deg, #9eae8e, #d4c3a3 60%, #5b7258);
-    }
-
-    .project-copy h2 {
-      font-size: clamp(34px, 4vw, 45px);
-      margin-bottom: 18px;
-    }
-
-    .project-copy p {
-      color: var(--muted);
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      display: inline-block;
-      border: 1px solid #d8d0c1;
-      border-radius: 999px;
-      padding: 6px 11px;
-      font-size: 11px;
-      color: var(--green);
-      margin: 0 5px 9px 0;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--green);
-      font-weight: 700;
-      font-size: 14px;
-      margin-top: 15px;
-      border-bottom: 1px solid var(--gold);
-      padding-bottom: 5px;
-    }
-
-    .project-link:hover {
-      color: var(--green-light);
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 35px;
-    }
-
-    .step {
-      border-top: 1px solid rgba(216, 189, 145, 0.5);
-      padding-top: 24px;
-    }
-
-    .step-number {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .step h3 {
-      font-size: 25px;
-      margin-bottom: 12px;
-    }
-
-    .step p {
-      color: #d0d9d1;
-      font-size: 14px;
-    }
-
-    .contact-box {
-      padding: 55px;
-      border-radius: 24px;
-      background: #eee8dc;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 35px;
-    }
-
-    .contact-box h2 {
-      font-size: clamp(32px, 4vw, 46px);
-      max-width: 540px;
       margin-bottom: 13px;
     }
 
-    .contact-box p {
-      color: var(--muted);
-      max-width: 480px;
-      font-size: 14px;
+    .service-card p {
+      font-size: .96rem;
     }
 
-    .footer {
-      padding: 28px 0;
+    .service-card ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .service-card li {
+      padding: 8px 0;
       border-top: 1px solid var(--line);
+      color: #4d554f;
+      font-size: .9rem;
     }
 
-    .footer-inner {
+    .service-card li::before {
+      content: "✓";
+      color: var(--green-light);
+      font-weight: 700;
+      margin-right: 9px;
+    }
+
+    .scope-note {
+      margin-top: 25px;
+      padding: 22px 25px;
+      background: #eee9de;
+      border-radius: 17px;
+    }
+
+    .scope-note strong {
+      color: var(--green);
+    }
+
+    .scope-note p {
+      margin-top: 5px;
+      font-size: .94rem;
+    }
+
+    /* Proyecto */
+
+    .portfolio {
+      background: #efebe2;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .project-visual {
+      min-height: 365px;
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e5d6bd;
+    }
+
+    .cafe-mockup {
+      width: 100%;
+      max-width: 390px;
+      padding: 24px;
+      background: #fffaf0;
+      border-radius: 17px;
+      box-shadow: 0 16px 35px rgba(53,39,23,.13);
+    }
+
+    .cafe-mockup-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid #e8decd;
+      color: #244b3a;
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .cafe-hero {
+      padding: 27px 0 23px;
+    }
+
+    .cafe-hero small {
+      color: #94754b;
+      font-size: .67rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .cafe-hero h3 {
+      margin: 10px 0;
+      font-size: 2.1rem;
+      color: #244b3a;
+    }
+
+    .cafe-hero p {
+      font-size: .79rem;
+    }
+
+    .cafe-cup {
+      min-height: 90px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #c4a27b, #e6d5b9);
+      font-size: 2.8rem;
+    }
+
+    .project-content {
+      padding: 48px;
+      align-self: center;
+    }
+
+    .project-content h2 {
+      margin-bottom: 18px;
+    }
+
+    .project-content > p {
+      margin-bottom: 23px;
+    }
+
+    .project-tags {
+      display: flex;
       flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 27px;
     }
 
-    .footer p {
-      color: var(--muted);
-      font-size: 12px;
+    .tag {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #edf0e9;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 600;
     }
 
-    .footer .brand-mark {
-      width: 32px;
-      height: 32px;
-      font-size: 19px;
+    .project-disclaimer {
+      margin-top: 16px;
+      font-size: .82rem;
     }
 
-    .footer .brand-name {
-      font-size: 14px;
+    /* Proceso */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
     }
 
-    .reveal {
-      animation: appear 0.8s ease both;
+    .process-step {
+      padding-top: 23px;
+      border-top: 2px solid var(--gold);
     }
 
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
+    .step-label {
+      margin-bottom: 13px;
+      color: var(--green-light);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .process-step h3 {
+      margin-bottom: 12px;
+    }
+
+    .process-step p {
+      font-size: .96rem;
+    }
+
+    /* Alcance del trabajo */
+
+    .delivery {
+      background: var(--green);
+      color: white;
+    }
+
+    .delivery-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: start;
+      gap: 70px;
+    }
+
+    .delivery h2 {
+      margin-bottom: 20px;
+    }
+
+    .delivery .eyebrow {
+      color: var(--gold);
+    }
+
+    .delivery .intro {
+      color: #d4ded7;
+      font-size: 1.04rem;
+    }
+
+    .delivery-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .delivery-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 15px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .delivery-item .symbol {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .delivery-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: white;
+    }
+
+    .delivery-item p {
+      color: #cbd7cf;
+      font-size: .9rem;
+    }
+
+    /* Preguntas frecuentes */
+
+    .faq-list {
+      max-width: 850px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq-item {
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .faq-item h3 {
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .faq-item p {
+      font-size: .95rem;
+    }
+
+    /* Contacto */
+
+    .contact {
+      padding: 85px 0;
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 62px;
+      border-radius: 28px;
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(216,189,145,.17), transparent 42%),
+        var(--green);
+      color: white;
+    }
+
+    .contact-panel .eyebrow {
+      color: var(--gold);
+    }
+
+    .contact-panel h2 {
+      max-width: 650px;
+      margin-bottom: 18px;
+    }
+
+    .contact-panel > p {
+      max-width: 620px;
+      color: #d4ded7;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .email-fallback {
+      margin-top: 25px;
+      font-size: .91rem;
+      color: #d4ded7;
+    }
+
+    .email-fallback a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Pie de página */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .footer-note {
+      font-size: .84rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--green-light);
+    }
+
+    /* Adaptación a móviles */
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 43px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    @media (max-width: 800px) {
-      .nav {
-        min-height: 68px;
+      .hero {
+        padding: 75px 0;
+      }
+
+      .hero-card {
+        max-width: 510px;
+        transform: none;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-visual {
+        min-height: 320px;
+      }
+
+      .delivery-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
 
       .nav-links {
         gap: 14px;
       }
 
-      .nav-links a:not(.nav-cta) {
+      .nav-links a:not(.btn) {
         display: none;
       }
 
-      .hero {
-        padding: 68px 0;
+      .contact-panel {
+        padding: 43px 30px;
       }
+    }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .hero-visual {
-        min-height: 310px;
-      }
-
-      .visual-frame {
-        max-width: 320px;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .work-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    @media (max-width: 560px) {
+      .container {
+        width: 90%;
       }
 
       .section {
         padding: 70px 0;
       }
 
-      .contact-box {
-        padding: 35px 25px;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .container {
-        width: min(100% - 28px, var(--max-width));
-      }
-
-      .brand-name {
-        font-size: 15px;
+      .nav {
+        min-height: 70px;
       }
 
       .brand-mark {
-        width: 37px;
-        height: 37px;
+        width: 38px;
+        height: 38px;
       }
 
-      .nav-cta {
+      .brand-caption {
+        font-size: .67rem;
+      }
+
+      .nav-links .btn {
         padding: 10px 13px;
-        font-size: 12px;
+        font-size: .82rem;
       }
 
-      h1 {
-        font-size: 43px;
+      .hero {
+        padding: 62px 0;
       }
 
-      .hero-actions .button {
+      .hero-copy > p {
+        font-size: 1.02rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
         width: 100%;
       }
 
-      .project-preview {
+      .hero-card {
         padding: 14px;
+        border-radius: 20px;
+      }
+
+      .preview-top {
+        padding: 23px 18px;
+      }
+
+      .preview-top h3 {
+        font-size: 1.7rem;
+      }
+
+      .preview-tile {
+        min-height: 95px;
+        padding: 11px;
+      }
+
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 25px;
+      }
+
+      .project-visual {
         min-height: 280px;
+        padding: 20px;
       }
 
-      .browser-content {
-        min-height: 210px;
+      .project-content {
+        padding: 30px 24px;
       }
 
-      .browser-copy {
-        padding: 20px 10px;
+      .delivery-grid {
+        gap: 28px;
       }
 
-      .browser-image {
-        margin: 10px 10px 10px 4px;
+      .contact {
+        padding: 65px 0;
+      }
+
+      .contact-panel {
+        padding: 36px 23px;
+        border-radius: 22px;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .contact-actions .btn {
+        width: 100%;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
       *, *::before, *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container nav">
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
       <a class="brand" href="#inicio" aria-label="DWeb Estudio, inicio">
         <span class="brand-mark">W</span>
-        <span class="brand-name">DWeb Estudio</span>
+        <span>
+          <span class="brand-name">DWeb Estudio</span>
+          <span class="brand-caption">Diseño y desarrollo web</span>
+        </span>
       </a>
 
-      <nav class="nav-links" aria-label="Navegación principal">
+      <div class="nav-links">
         <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
+        <a href="#proyecto">Proyecto</a>
         <a href="#proceso">Proceso</a>
-        <a class="nav-cta" href="#contacto">Hablemos ↗</a>
-      </nav>
-    </div>
+        <a class="btn btn-primary" href="https://wa.me/573212184226?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">Hablemos ↗</a>
+      </div>
+    </nav>
   </header>
 
   <main>
+
     <section class="hero" id="inicio">
       <div class="container hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">Diseño web independiente</p>
-          <h1>Tu negocio merece una presencia <span>digital a su altura.</span></h1>
-          <p class="hero-copy">
-            Diseño páginas web claras, modernas y adaptables para que los pequeños negocios
-            presenten sus servicios y faciliten el contacto con sus clientes.
+        <div class="hero-copy">
+          <div class="eyebrow">Una presencia digital bien pensada</div>
+
+          <h1>Tu negocio merece una web que esté a su <span class="accent">altura.</span></h1>
+
+          <p>
+            Diseño y desarrollo páginas web modernas, claras y adaptables a móviles,
+            para que tu negocio tenga un espacio propio en internet y se presente
+            de manera profesional.
           </p>
 
           <div class="hero-actions">
-            <a class="button" href="#contacto">Hablemos de tu proyecto ↗</a>
-            <a class="button button-outline" href="#proyectos">Ver proyecto de ejemplo</a>
+            <a class="btn btn-primary" href="https://wa.me/573212184226?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">
+              Consultar por WhatsApp ↗
+            </a>
+            <a class="btn btn-light" href="#proyecto">Ver proyecto de ejemplo ↓</a>
           </div>
 
-          <p class="hero-note">
-            <span></span>
-            Diseño cuidado, comunicación clara y enfoque en cada negocio.
-          </p>
+          <p class="microcopy">Cuéntame qué necesita tu negocio y hablamos de una solución a tu medida.</p>
+
+          <div class="hero-note">
+            <span>✦</span>
+            <div>
+              <strong>Un servicio claro, desde el principio.</strong>
+              <p>Diseño, desarrollo y entrega de los archivos finales de tu página web.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="hero-visual" aria-label="Símbolo de DWeb Estudio">
-          <div class="visual-frame">
-            <div class="monogram">W</div>
-            <div class="visual-label">DWeb Estudio</div>
+        <div>
+          <div class="hero-card" aria-label="Vista ilustrativa de una página web">
+            <div class="browser-bar">
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-dot"></span>
+              <span class="browser-address">vista previa · diseño web</span>
+            </div>
+
+            <div class="preview">
+              <div class="preview-top">
+                <span class="preview-label">Una marca · Una experiencia</span>
+                <h3>Una buena primera impresión comienza aquí.</h3>
+                <p>Diseño limpio, contenido claro y una experiencia pensada para tus visitantes.</p>
+              </div>
+
+              <div class="preview-bottom">
+                <div class="preview-tile">
+                  <strong>Diseño</strong>
+                  <span>Una imagen coherente</span>
+                </div>
+                <div class="preview-tile">
+                  <strong>Claridad</strong>
+                  <span>Información fácil de encontrar</span>
+                </div>
+              </div>
+            </div>
           </div>
+          <p class="microcopy">Cada proyecto se adapta a las necesidades de su negocio.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-white" id="servicios">
+    <section class="benefits" aria-label="Características del servicio">
+      <div class="container benefits-grid">
+        <div class="benefit">
+          <span class="benefit-icon">✓</span>
+          Diseño adaptable a móviles y computadores
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">✦</span>
+          Presentación clara y profesional
+        </div>
+        <div class="benefit">
+          <span class="benefit-icon">↗</span>
+          Entrega de los archivos del proyecto
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
       <div class="container">
-        <div class="section-heading center">
-          <p class="eyebrow">Qué puedo hacer por ti</p>
-          <h2>Una web pensada para tu negocio.</h2>
+        <div class="section-heading">
+          <div class="eyebrow">Qué puedo hacer por tu negocio</div>
+          <h2>Una web útil, atractiva y <span class="accent">bien estructurada.</span></h2>
           <p>
-            Una presencia digital profesional empieza con una página útil,
-            fácil de recorrer y diseñada para las necesidades de tus clientes.
+            El objetivo es que tus clientes entiendan qué ofreces, encuentren la
+            información importante y sepan cómo ponerse en contacto contigo.
           </p>
         </div>
 
         <div class="services-grid">
           <article class="service-card">
             <span class="service-number">01</span>
-            <h3>Páginas de presentación</h3>
-            <p>
-              Explica qué haces, qué ofreces y por qué deberían elegir tu negocio
-              con una página clara y atractiva.
-            </p>
+            <h3>Diseño visual</h3>
+            <p>Una apariencia coherente con la identidad y el estilo de tu negocio.</p>
+            <ul>
+              <li>Colores y tipografía</li>
+              <li>Distribución de secciones</li>
+              <li>Diseño para móvil y escritorio</li>
+            </ul>
           </article>
 
           <article class="service-card">
             <span class="service-number">02</span>
-            <h3>Diseño adaptable</h3>
-            <p>
-              Una experiencia pensada para verse y utilizarse cómodamente
-              desde móviles, tabletas y computadores.
-            </p>
+            <h3>Desarrollo web</h3>
+            <p>Una página organizada, fácil de recorrer y preparada para diferentes pantallas.</p>
+            <ul>
+              <li>Secciones personalizadas</li>
+              <li>Botones y enlaces funcionales</li>
+              <li>Información de productos o servicios</li>
+            </ul>
           </article>
 
           <article class="service-card">
             <span class="service-number">03</span>
-            <h3>Contacto sencillo</h3>
-            <p>
-              Organiza la información importante y facilita que tus visitantes
-              encuentren cómo comunicarse contigo.
-            </p>
+            <h3>Contacto y entrega</h3>
+            <p>Una página que facilite a tus visitantes dar el siguiente paso.</p>
+            <ul>
+              <li>Enlaces de contacto acordados</li>
+              <li>Revisión antes de la entrega</li>
+              <li>Archivos finales del proyecto</li>
+            </ul>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section" id="proyectos">
-      <div class="container work-grid">
-        <div class="project-preview">
-          <div class="browser">
-            <div class="browser-bar">
-              <i></i><i></i><i></i>
-            </div>
-            <div class="browser-content">
-              <div class="browser-copy">
-                <small>CAFÉ DE ESPECIALIDAD</small>
-                <h3>Un buen café cambia el día.</h3>
-                <p>Un concepto de web cálido y elegante para una cafetería ficticia.</p>
-              </div>
-              <div class="browser-image"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-copy">
-          <p class="eyebrow">Proyecto de demostración</p>
-          <h2>Una idea, convertida en una experiencia web.</h2>
+        <div class="scope-note">
+          <strong>¿Qué incluye cada proyecto?</strong>
           <p>
-            Café Aurora es un proyecto conceptual creado para demostrar cómo
-            una página puede presentar la identidad, los productos y la
-            información de un pequeño negocio.
+            El alcance, las secciones, los materiales necesarios, las revisiones
+            y el precio se acuerdan antes de empezar. El dominio, el alojamiento,
+            la publicación en internet y el mantenimiento no están incluidos
+            por defecto.
           </p>
-          <div>
-            <span class="tag">Diseño adaptable</span>
-            <span class="tag">Identidad visual</span>
-            <span class="tag">Experiencia de usuario</span>
-          </div>
-          <a class="project-link"
-             href="https://david582768.github.io/web-demo/"
-             target="_blank"
-             rel="noopener noreferrer">
-            Explorar Café Aurora ↗
-          </a>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="proceso">
+    <section class="section portfolio" id="proyecto">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Cómo trabajamos</p>
-          <h2>Un proceso claro, de principio a fin.</h2>
+          <div class="eyebrow">Proyecto de demostración</div>
+          <h2>Así puede tomar forma una <span class="accent">idea.</span></h2>
           <p>
-            Cada proyecto comienza con una conversación para entender el negocio
-            y definir qué necesita su página web.
+            Este ejemplo muestra cómo una página puede combinar identidad visual,
+            información útil y una estructura sencilla de navegar.
           </p>
         </div>
 
-        <div class="steps">
-          <article class="step">
-            <span class="step-number">PASO 01</span>
-            <h3>Conocemos tu idea</h3>
-            <p>
-              Hablamos de tu negocio, tus objetivos, tus clientes y la información
-              que debería mostrar la página.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-number">PASO 02</span>
-            <h3>Diseñamos la página</h3>
-            <p>
-              Organizamos el contenido y desarrollamos una propuesta visual
-              que revisamos contigo.
-            </p>
-          </article>
-
-          <article class="step">
-            <span class="step-number">PASO 03</span>
-            <h3>Revisamos y publicamos</h3>
-            <p>
-              Corregimos los detalles acordados y preparamos la página
-              para su publicación.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contacto">
-      <div class="container">
-        <div class="contact-box">
-          <div>
-            <p class="eyebrow">Hablemos de tu proyecto</p>
-            <h2>¿Tienes una idea para tu negocio?</h2>
-            <p>
-              Cuéntame qué hace tu negocio y qué te gustaría conseguir con una página web.
-              Podemos empezar por una conversación, sin compromiso.
-            </p>
+        <article class="project-card">
+          <div class="project-visual">
+            <div class="cafe-mockup">
+              <div class="cafe-mockup-header">
+                <span>CAFÉ AURORA</span>
+                <span>MADRID · DEMO</span>
+              </div>
+              <div class="cafe-hero">
+                <small>Un lugar para disfrutar</small>
+                <h3>Tu pausa favorita.</h3>
+                <p>Café de especialidad, momentos tranquilos y sabor en cada taza.</p>
+              </div>
+              <div class="cafe-cup" aria-hidden="true">☕</div>
+            </div>
           </div>
 
-          <a class="button"
-             href="mailto:dweb.estudio@gmail.com?subject=Consulta%20sobre%20dise%C3%B1o%20web">
-            Escribir por correo ↗
-          </a>
+          <div class="project-content">
+            <div class="eyebrow">01 / Concepto de cafetería</div>
+            <h2>Café Aurora</h2>
+            <p>
+              Un sitio web conceptual para una cafetería ficticia, con una identidad
+              visual cálida y una estructura diseñada para presentar el negocio.
+            </p>
+
+            <div class="project-tags">
+              <span class="tag">Diseño adaptable</span>
+              <span class="tag">Identidad visual</span>
+              <span class="tag">Sitio demostrativo</span>
+            </div>
+
+            <a class="btn btn-primary" href="https://david582768.github.io/web-demo/" target="_blank" rel="noopener noreferrer">
+              Explorar la página ↗
+            </a>
+
+            <p class="project-disclaimer">
+              Café Aurora es un proyecto de demostración, no un cliente real.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="proceso">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Cómo trabajamos</div>
+          <h2>Un proceso sencillo, con expectativas <span class="accent">claras.</span></h2>
+          <p>
+            Antes de escribir código, definimos qué necesitas y qué recibirás al final.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-step">
+            <div class="step-label">Paso 01</div>
+            <h3>Conversamos</h3>
+            <p>
+              Me cuentas sobre tu negocio, tus objetivos, las secciones que necesitas
+              y el estilo que te gustaría conseguir.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <div class="step-label">Paso 02</div>
+            <h3>Diseñamos y desarrollamos</h3>
+            <p>
+              Construyo la página según el alcance acordado y revisamos el resultado
+              antes de dar el proyecto por terminado.
+            </p>
+          </article>
+
+          <article class="process-step">
+            <div class="step-label">Paso 03</div>
+            <h3>Entregamos el proyecto</h3>
+            <p>
+              Recibes los archivos finales acordados. La contratación del dominio,
+              el alojamiento y la publicación quedan a cargo del cliente, salvo
+              que se acuerde otro servicio por separado.
+            </p>
+          </article>
         </div>
       </div>
     </section>
+
+    <section class="section delivery" id="entrega">
+      <div class="container delivery-grid">
+        <div>
+          <div class="eyebrow">Transparencia desde el inicio</div>
+          <h2>Sabes exactamente qué estás contratando.</h2>
+          <p class="intro">
+            Mi servicio se centra en el diseño y desarrollo de tu página.
+            Los servicios externos se mantienen separados para que puedas
+            decidir cómo quieres gestionar tu sitio.
+          </p>
+        </div>
+
+        <div class="delivery-list">
+          <div class="delivery-item">
+            <span class="symbol">✓</span>
+            <div>
+              <strong>Incluido según lo acordado</strong>
+              <p>Diseño, desarrollo y entrega de los archivos finales de la web.</p>
+            </div>
+          </div>
+
+          <div class="delivery-item">
+            <span class="symbol">↗</span>
+            <div>
+              <strong>Dominio y alojamiento</strong>
+              <p>No están incluidos. El cliente los contrata y paga directamente si los necesita.</p>
+            </div>
+          </div>
+
+          <div class="delivery-item">
+            <span class="symbol">↗</span>
+            <div>
+              <strong>Publicación en internet</strong>
+              <p>No está incluida en el servicio base. Puedes gestionarla por tu cuenta o contratar a alguien para hacerlo.</p>
+            </div>
+          </div>
+
+          <div class="delivery-item">
+            <span class="symbol">↗</span>
+            <div>
+              <strong>Mantenimiento y cambios futuros</strong>
+              <p>No son automáticos ni están incluidos después de la entrega; cualquier trabajo adicional se acuerda aparte.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="preguntas">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Preguntas frecuentes</div>
+          <h2>Antes de empezar, <span class="accent">resolvamos tus dudas.</span></h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <h3>¿Trabajas con negocios pequeños?</h3>
+            <p>
+              Sí. Podemos conversar sobre la necesidad de tu negocio y definir
+              un proyecto que tenga sentido para su alcance y presupuesto.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿El precio es fijo?</h3>
+            <p>
+              Depende del alcance. Primero definimos las secciones, funcionalidades,
+              materiales y condiciones; después acordamos el presupuesto antes de comenzar.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿La página queda publicada en internet?</h3>
+            <p>
+              La publicación no forma parte del servicio base. Entrego los archivos
+              finales acordados y el cliente gestiona la publicación, el dominio
+              y el alojamiento, o contrata ese servicio por separado.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Puedo pedir cambios durante el proyecto?</h3>
+            <p>
+              Sí, las revisiones y sus límites se definen antes de empezar.
+              Los cambios que excedan lo acordado pueden cotizarse por separado.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Ofreces mantenimiento después de la entrega?</h3>
+            <p>
+              El mantenimiento continuo no está incluido por defecto.
+              Si necesitas modificaciones posteriores, podemos hablar de un trabajo adicional.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>¿Cómo puedo solicitar una cotización?</h3>
+            <p>
+              Escríbeme por WhatsApp o correo con una breve descripción de tu negocio
+              y de la página que tienes en mente. Con esa información podremos conversar
+              sobre el alcance y el presupuesto.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="eyebrow">Hablemos de tu proyecto</div>
+          <h2>Tu próxima página web puede empezar con una conversación.</h2>
+          <p>
+            Cuéntame qué hace tu negocio, qué necesitas mostrar y qué te gustaría
+            conseguir con tu página. Revisaremos la idea y el alcance del proyecto.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-gold" href="https://wa.me/573212184226?text=Hola%2C%20vengo%20de%20la%20web%20de%20DWeb%20Estudio.%20Me%20gustar%C3%ADa%20consultar%20sobre%20una%20p%C3%A1gina%20web." target="_blank" rel="noopener noreferrer">
+              Escribirme por WhatsApp ↗
+            </a>
+
+            <a class="btn btn-outline-light" href="https://mail.google.com/mail/?view=cm&fs=1&to=dweb.estudio@gmail.com&su=Consulta%20sobre%20dise%C3%B1o%20web" target="_blank" rel="noopener noreferrer">
+              Contactar por correo ↗
+            </a>
+          </div>
+
+          <p class="email-fallback">
+            Correo: <a href="mailto:dweb.estudio@gmail.com">dweb.estudio@gmail.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a class="brand" href="#inicio">
-        <span class="brand-mark">W</span>
-        <span class="brand-name">DWeb Estudio</span>
-      </a>
-      <p>Diseño web independiente · © <span id="year">2026</span> DWeb Estudio</p>
+  <footer>
+    <div class="container footer-row">
+      <div>
+        <div class="footer-brand">DWeb Estudio</div>
+        <p class="footer-note">Diseño y desarrollo web.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+        <a href="https://wa.me/573212184226" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+      </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
-
