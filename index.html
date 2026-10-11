@@ -1,1 +1,893 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173c30">
+  <meta name="description" content="DWeb Estudio crea páginas web modernas, elegantes y adaptables para pequeños negocios.">
+  <title>DWeb Estudio | Diseño web para negocios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #173c30;
+      --green-light: #285342;
+      --cream: #f8f5ee;
+      --gold: #d8bd91;
+      --ink: #262a28;
+      --muted: #70766f;
+      --white: #ffffff;
+      --line: #e7e2d8;
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 245, 238, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      border: 1px solid var(--gold);
+    }
+
+    .brand-name {
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a:not(.nav-cta):hover {
+      color: var(--green-light);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 13px 21px;
+      background: var(--green);
+      color: var(--white);
+      border: 1px solid var(--green);
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      color: var(--green);
+      background: transparent;
+      border-color: #b8c2b8;
+    }
+
+    .button-outline:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 100px 0 95px;
+      background:
+        radial-gradient(ellipse at 85% 20%, rgba(216, 189, 145, 0.19), transparent 38%),
+        var(--cream);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 27px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 600;
+      line-height: 1.17;
+    }
+
+    h1 {
+      font-size: clamp(43px, 5.5vw, 69px);
+      letter-spacing: -1.8px;
+      max-width: 680px;
+    }
+
+    h1 span {
+      color: var(--green-light);
+      font-style: italic;
+    }
+
+    .hero-copy {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 24px 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 35px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-note span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 400px;
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-frame {
+      width: 100%;
+      max-width: 390px;
+      aspect-ratio: 0.9;
+      border-radius: 190px 190px 18px 18px;
+      background: var(--green);
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .visual-frame::before,
+    .visual-frame::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(216, 189, 145, 0.4);
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+    }
+
+    .visual-frame::after {
+      width: 210px;
+      height: 210px;
+    }
+
+    .monogram {
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(100px, 14vw, 165px);
+      line-height: 1;
+      z-index: 1;
+      letter-spacing: -12px;
+      padding-right: 12px;
+    }
+
+    .visual-label {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #f8f5ee;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      z-index: 2;
+    }
+
+    .section {
+      padding: 95px 0;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-dark {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -0.8px;
+      margin-bottom: 17px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .section-dark .section-heading p {
+      color: #d0d9d1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 30px 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--cream);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .service-number {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: var(--green);
+      background: #ece6d9;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .service-card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .project-preview {
+      min-height: 350px;
+      padding: 25px;
+      border-radius: var(--radius);
+      background: #e8e1d4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .browser {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 18px 45px rgba(38, 42, 40, 0.13);
+      background: #fffdf8;
+    }
+
+    .browser-bar {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 12px;
+      background: #f2eee7;
+    }
+
+    .browser-bar i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #c5beb1;
+    }
+
+    .browser-content {
+      min-height: 250px;
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+    }
+
+    .browser-copy {
+      padding: 25px 15px 20px 20px;
+    }
+
+    .browser-copy small {
+      color: #6b796b;
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .browser-copy h3 {
+      font-size: clamp(19px, 2.3vw, 29px);
+      margin: 12px 0;
+      color: #263d30;
+    }
+
+    .browser-copy p {
+      font-size: 9px;
+      color: #73766e;
+      line-height: 1.6;
+    }
+
+    .browser-image {
+      margin: 14px;
+      border-radius: 80px 80px 8px 8px;
+      background: linear-gradient(145deg, #9eae8e, #d4c3a3 60%, #5b7258);
+    }
+
+    .project-copy h2 {
+      font-size: clamp(34px, 4vw, 45px);
+      margin-bottom: 18px;
+    }
+
+    .project-copy p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #d8d0c1;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 11px;
+      color: var(--green);
+      margin: 0 5px 9px 0;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 15px;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 5px;
+    }
+
+    .project-link:hover {
+      color: var(--green-light);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .step {
+      border-top: 1px solid rgba(216, 189, 145, 0.5);
+      padding-top: 24px;
+    }
+
+    .step-number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .step h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      color: #d0d9d1;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      padding: 55px;
+      border-radius: 24px;
+      background: #eee8dc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      max-width: 540px;
+      margin-bottom: 13px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 480px;
+      font-size: 14px;
+    }
+
+    .footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer .brand-mark {
+      width: 32px;
+      height: 32px;
+      font-size: 19px;
+    }
+
+    .footer .brand-name {
+      font-size: 14px;
+    }
+
+    .reveal {
+      animation: appear 0.8s ease both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        padding: 68px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-visual {
+        min-height: 310px;
+      }
+
+      .visual-frame {
+        max-width: 320px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .work-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .contact-box {
+        padding: 35px 25px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .brand-mark {
+        width: 37px;
+        height: 37px;
+      }
+
+      .nav-cta {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .project-preview {
+        padding: 14px;
+        min-height: 280px;
+      }
+
+      .browser-content {
+        min-height: 210px;
+      }
+
+      .browser-copy {
+        padding: 20px 10px;
+      }
+
+      .browser-image {
+        margin: 10px 10px 10px 4px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="DWeb Estudio, inicio">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">DWeb Estudio</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a class="nav-cta" href="#contacto">Hablemos ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Diseño web independiente</p>
+          <h1>Tu negocio merece una presencia <span>digital a su altura.</span></h1>
+          <p class="hero-copy">
+            Diseño páginas web claras, modernas y adaptables para que los pequeños negocios
+            presenten sus servicios y faciliten el contacto con sus clientes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#contacto">Hablemos de tu proyecto ↗</a>
+            <a class="button button-outline" href="#proyectos">Ver proyecto de ejemplo</a>
+          </div>
+
+          <p class="hero-note">
+            <span></span>
+            Diseño cuidado, comunicación clara y enfoque en cada negocio.
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-label="Símbolo de DWeb Estudio">
+          <div class="visual-frame">
+            <div class="monogram">W</div>
+            <div class="visual-label">DWeb Estudio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white" id="servicios">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="eyebrow">Qué puedo hacer por ti</p>
+          <h2>Una web pensada para tu negocio.</h2>
+          <p>
+            Una presencia digital profesional empieza con una página útil,
+            fácil de recorrer y diseñada para las necesidades de tus clientes.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>Páginas de presentación</h3>
+            <p>
+              Explica qué haces, qué ofreces y por qué deberían elegir tu negocio
+              con una página clara y atractiva.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>Diseño adaptable</h3>
+            <p>
+              Una experiencia pensada para verse y utilizarse cómodamente
+              desde móviles, tabletas y computadores.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <h3>Contacto sencillo</h3>
+            <p>
+              Organiza la información importante y facilita que tus visitantes
+              encuentren cómo comunicarse contigo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="container work-grid">
+        <div class="project-preview">
+          <div class="browser">
+            <div class="browser-bar">
+              <i></i><i></i><i></i>
+            </div>
+            <div class="browser-content">
+              <div class="browser-copy">
+                <small>CAFÉ DE ESPECIALIDAD</small>
+                <h3>Un buen café cambia el día.</h3>
+                <p>Un concepto de web cálido y elegante para una cafetería ficticia.</p>
+              </div>
+              <div class="browser-image"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-copy">
+          <p class="eyebrow">Proyecto de demostración</p>
+          <h2>Una idea, convertida en una experiencia web.</h2>
+          <p>
+            Café Aurora es un proyecto conceptual creado para demostrar cómo
+            una página puede presentar la identidad, los productos y la
+            información de un pequeño negocio.
+          </p>
+          <div>
+            <span class="tag">Diseño adaptable</span>
+            <span class="tag">Identidad visual</span>
+            <span class="tag">Experiencia de usuario</span>
+          </div>
+          <a class="project-link"
+             href="https://david582768.github.io/web-demo/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Explorar Café Aurora ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="proceso">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cómo trabajamos</p>
+          <h2>Un proceso claro, de principio a fin.</h2>
+          <p>
+            Cada proyecto comienza con una conversación para entender el negocio
+            y definir qué necesita su página web.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <span class="step-number">PASO 01</span>
+            <h3>Conocemos tu idea</h3>
+            <p>
+              Hablamos de tu negocio, tus objetivos, tus clientes y la información
+              que debería mostrar la página.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">PASO 02</span>
+            <h3>Diseñamos la página</h3>
+            <p>
+              Organizamos el contenido y desarrollamos una propuesta visual
+              que revisamos contigo.
+            </p>
+          </article>
+
+          <article class="step">
+            <span class="step-number">PASO 03</span>
+            <h3>Revisamos y publicamos</h3>
+            <p>
+              Corregimos los detalles acordados y preparamos la página
+              para su publicación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <p class="eyebrow">Hablemos de tu proyecto</p>
+            <h2>¿Tienes una idea para tu negocio?</h2>
+            <p>
+              Cuéntame qué hace tu negocio y qué te gustaría conseguir con una página web.
+              Podemos empezar por una conversación, sin compromiso.
+            </p>
+          </div>
+
+          <a class="button"
+             href="mailto:dweb.estudio@gmail.com?subject=Consulta%20sobre%20dise%C3%B1o%20web">
+            Escribir por correo ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">W</span>
+        <span class="brand-name">DWeb Estudio</span>
+      </a>
+      <p>Diseño web independiente · © <span id="year">2026</span> DWeb Estudio</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
